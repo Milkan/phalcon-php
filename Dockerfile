@@ -24,6 +24,9 @@ RUN /usr/sbin/php5enmod phalcon
 WORKDIR /var/www/phalcon/public
 RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/public/index.html
 
+RUN rm -f /etc/apache2/sites-available/000-default.conf
+RUN ln -s default 000-default.conf
+
 EXPOSE 80
 EXPOSE 443
 
