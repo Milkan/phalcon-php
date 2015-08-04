@@ -5,7 +5,7 @@ ADD default /etc/apache2/sites-available/
 ADD default-ssl /etc/apache2/sites-available/
 
 RUN rm -f /etc/apache2/sites-available/000-default.conf
-RUN ln -s default 000-default.conf
+RUN ln -s /etc/apache2/sites-available/default /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
 EXPOSE 443
