@@ -6,6 +6,8 @@ ADD default-ssl /etc/apache2/sites-available/
 
 RUN rm -f /etc/apache2/sites-available/000-default.conf
 RUN ln -s /etc/apache2/sites-available/default /etc/apache2/sites-available/000-default.conf
+RUN apt-get install php5-mysql
+RUN apt-get install php5-curl
 
 EXPOSE 80
 EXPOSE 443
@@ -15,4 +17,3 @@ WORKDIR /var/www/phalcon/public
 RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/public/index.html
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
